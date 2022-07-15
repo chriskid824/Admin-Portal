@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<link href="/orderLabel.css" rel="stylesheet" type="text/css"/>
+<html>
+  <body class="printLabels_{{labelType}}">
+
+  {{#if orders}}
+    {{#if (eq labelType 'Goat') }}
+      <title>Print-LK-Label</title>
+      {{> labelGOAT }}
+    {{else if (eq labelType 'LK') }}
+      <title>Print-LK-Label</title>
+      {{> labelLK }}
+    {{else if (eq labelType 'LKKC') }}
+      <title>Print-KC-Label</title>
+      {{> labelLKKC }}
+    {{/if}}
+
+  </body>
+  {{else}}
+  <p>No orders found.</p>
+  {{/if}}
+</html>

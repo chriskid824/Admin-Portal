@@ -1,0 +1,220 @@
+{{#> mainLayout}}
+{{#if productDetail}}
+<h1>Edit Product {{ productDetail.model_no }}</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script src='/tinymce/tinymce.min.js'></script>
+
+<script src="/product.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".js-example-basic-multiple").select2();
+        tinymce.init({
+            selector: '.richTextEditor',
+            branding: false,
+            menubar: 'edit insert format',
+            plugins: "table save lists link",
+            toolbar1: 'undo redo| bold italic underline  | forecolor backcolor |  alignleft aligncenter alignright alignjustify alignnone| bullist numlist ',
+            toolbar2: 'indent outdent| subscript superscript | blockquote removeformat| table link | cancel',
+        });
+
+        // image upload
+        // TODO : error handling for invalid file type
+        // should only accept jpg|jpeg|png|gif
+        //const fileInput = document.querySelector('#upload-image');
+        //fileInput && (fileInput.onchange = function(e) {
+        //    e.target.form.submit();
+        //});
+    });
+</script>
+<form method="post" id="editForm">
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Product#</th>
+                <td>{{productDetail.modelno}}</td>
+            </tr>
+            <tr>
+                <th>Product#2</th>
+                <td>{{productDetail.model_no}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Model Name</th>
+                <td style="width: 80%;"><input type="text" class="form-control" name="name" value="{{productDetail.name}}" /></td>
+            </tr>
+            <tr>
+                <th scope="col">Series</th>
+                <td><input type="text" class="form-control" name="series" value="{{productDetail.series}}" /></td>
+            </tr>
+            <tr>
+                <th scope="col">Made In</th>
+                <td><input type="text" class="form-control" name="made_in" value="{{productDetail.made_in}}" /></td>
+            </tr>
+            <tr>
+                <th scope="col">Color</th>
+                <td><input type="text" class="form-control" name="color" value="{{productDetail.color}}" /></td>
+            </tr>
+            <tr>
+                <th scope="col">Color Option in Magento</th>
+                <td>
+                    <select id="colorOpt" class="form-select" name="magentolID">
+                        <option value="">-- Magento not live(No photo) --</option>
+                        {{#each detailColorOpt}}
+                            <option value="{{this.magentoID}}" {{#if this.optionSelected}}selected{{/if}}>{{this.eng}} {{this.cht}}</option>
+                        {{/each}}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Retail Price(HKD)</th>
+                <td><input type="text" class="form-control" name="price" value="{{productDetail.price}}" /></td>
+            </tr>
+            <tr>
+                <th scope="col">Categories</th>
+                <td>
+                    {{#each categoryObj}}
+                        <select class="form-select" name="{{@key}}" id="{{@key}}" onchange="getCategories(this)">
+                            <option value>----</option>
+                            {{#each this}}
+                            <option value="{{this.id}}" {{#if this.selected}} selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    {{/each}}
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Gender</th>
+                <td>
+                    <div>
+                        {{#each detailGender}}
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="gender{{this.id}}" name="gender" value="{{this.id}}"
+                                    type="radio" {{#if this.selected}}checked{{/if}} />
+                                <label class="form-check-label" for="gender{{this.id}}">{{this.name}}</label>
+                            </div>
+                        {{/each}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Type</th>
+                <td>
+                    {{#each detailType}}
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" id="type{{this.id}}" name="type" value="{{this.id}}"
+                                type="radio" {{#if this.selected}}checked{{/if}} />
+                            <label class="form-check-label" for="type{{this.id}}">{{this.name}}</label>
+                        </div>
+                    {{/each}}
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Location</th>
+                <td>
+                    <div>
+                        <select class="js-example-basic-multiple" multiple="multiple" id="location" name="location" multiple="multiple" style="width: 100%;">
+                            {{#each detailLocation}}
+                                <option value="{{this.id}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Payment Gateway</th>
+                <td>
+                    <select id="payment_gateway" name="payment_gateway">
+                        <option value="">- - -</option>
+                        <option value="both" {{#if detailPayment.both}}selected{{/if}}>Both</option>
+                        <option value="paypal" {{#if detailPayment.paypal}}selected{{/if}}>Paypal</option>
+                        <option value="payvision" {{#if detailPayment.payvision}}selected{{/if}}>Payvision</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Release Date</th>
+                <td><input type="date" value="{{productDetail.releasedate}}" name="releasedate" id="releasedate" /><button type="button" class="btn btn-outline-primary ms-3" id="btn_today" onclick="changeDate()">Today</button></td>
+            </tr>
+            <tr>
+                <th scope="col">Sort Date</th>
+                <td><input type="date" value="{{productDetail.sortdate}}" name="sortdate" /> </td>
+            </tr>
+            {{#if showShopify}}
+                <tr>
+                    <th>Shopify Vendor</th>
+                    <td>
+                        <select name="vendor" id="vendor">
+                            <option value="">---</option>
+                            {{#each vendors}}
+                                <option value="{{this.vendor}}" {{#if (eq this.vendor ../productDetail.vendor)}}selected{{/if}}>{{this.vendor}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Shopify Product Type</th>
+                    <td>
+                        <select name="product_type" id="product_type">
+                            <option value="">---</option>
+                            {{#each product_types}}
+                                <option value="{{this.product_type_eng}}" {{#if (eq this.product_type_eng ../productDetail.product_type)}}selected{{/if}}>{{this.product_type_eng}}</option>
+                            {{/each}}
+                        </select>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th>Shopify Status</th>
+                    <td>
+                        Active <input type="radio" name="status" value="active" {{#if (eq status "active")}}checked{{/if}}/>
+                        Archived <input type="radio" name="status" value="archived" {{#if (eq status "archived")}}checked{{/if}}/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Shopify Description</th>
+                    <td>
+                        Show <input type="radio" name="showOption" value="show" {{#if (eq showShopifyDescription 1)}}checked{{/if}} />
+                        Not show <input type="radio" name="showOption" value="notShow" {{#if (eq showShopifyDescription 0)}}checked{{/if}} />
+                        <br>
+                        Description : <br>
+                        <textarea class='richTextEditor' rows="4" cols="50" name="description" form="editForm">{{description}}</textarea>
+                    </td>
+                </tr>
+            {{/if}}
+            {{!-- <tr>
+                <th><a id="images">Images</a></th>
+                <td class="d-flex flex-column">
+                    {{#each images}}
+                    <div class="d-flex align-items-center pb-1">
+                        <a href="{{sourcePath}}" target="_blank"{{#unless isOnShopify}} class="crossout"{{/unless}}>
+                            <img src="{{sourcePath}}" class="product-img img-thumbnail" />
+                        </a>
+                        <div class="flex-grow-1 ps-2 file-name">{{fileName}}</div>
+                        <div class="flex-grow-1 ps-2 update-date">{{prettifyDate updateDate}}</div>
+                        <div class="flex-shrink-1 ps-2">
+                            <a href="{{../navBarData.product.path}}/image/{{../productDetail.id}}/delete?id={{id}}" 
+                                class="btn btn-outline-danger btn-sm btn-delete"
+                            >Delete</a>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <div><label class="d-inline float-end btn btn-success btn-sm" for="upload-image">Add</label></div>
+                </td>
+            </tr> --}}
+            <tr>
+                <td></td>
+                <td><button type="submit" class="btn btn-primary">Submit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+{{!-- 
+<form action="{{navBarData.product.path}}/image/{{productDetail.id}}"
+    enctype="multipart/form-data" method="post" class="d-none"
+>
+    <input type="file" name="file" id="upload-image" accept=".jpg,.jpeg,.png,.gif" />
+</form> --}}
+{{/if}}
+{{/mainLayout}}

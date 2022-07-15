@@ -1,0 +1,31 @@
+## kickscrew_backup
+
+  --erp_stock0_yyyymm			: 1st day every month copied from kickscrew_db2
+
+  --kc_purchaseArrive_yyyymm		: 1st day every month copied from kickscrew_db2
+
+  --sys_log_yyyymmdd			: copied from kickscrew_db2 manually
+
+
+
+## kickscrew_db2
+
+  --con_stock				: consign stock & price, for supplier Wankee & Link
+
+  --con_stock_bak			: backup of con_stock
+
+  --dk_return				: supplier Dunk API's response log
+
+  --dk_stock				: Dunk stock & price
+
+  --dk_stock_bak			: backup of dk_stock
+
+  --DU_orders				: all orders sold in platform DU(毒)
+
+  --erp_barcode				: all product barcode, got from ERP(管易)
+
+  --erp_shop				: all shop(platform) in ERP
+
+  --erp_stock0				: all products stock from ERP, make a full download every day & increasement download every hour.
+
+  --erp_stock0_bak			: backup of erp_stock0

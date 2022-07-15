@@ -1,0 +1,20 @@
+{{#> mainLayout}}
+{{#*inline "head"}}
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  body > .container {
+    flex: 1;
+  }
+</style>
+{{~/inline}}
+<div class="d-flex flex-column align-items-center justify-content-center h-100 pb-1">
+  <img src="/kickscrew_logo_1.svg" />
+  <form class="col-md-6 col-sm-12 mb-5 pb-5">
+    {{>orderIdSearchInput inputId='mainpage-search-input'}}
+  </form>
+</div>
+{{/mainLayout}}

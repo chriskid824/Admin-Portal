@@ -1,0 +1,6 @@
+.DS_Store
+main/.env
+main/db.sqlite3
+
+.env
+main/kscw-nexus-a7tp-stg-45bb151b7fdf.json

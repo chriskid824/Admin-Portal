@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1654740853390" clover="3.2.0">
+  <project timestamp="1654740853390" name="All files">
+    <metrics statements="404" coveredstatements="197" conditionals="217" coveredconditionals="96" methods="86" coveredmethods="23" elements="707" coveredelements="316" complexity="0" loc="404" ncloc="404" packages="1" files="6" classes="6"/>
+    <file name="db.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/db.js">
+      <metrics statements="57" coveredstatements="8" conditionals="33" coveredconditionals="7" methods="25" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="18" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
+      <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="35" count="0" type="stmt"/>
+      <line num="37" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="46" count="0" type="stmt"/>
+      <line num="50" count="0" type="stmt"/>
+      <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="70" count="0" type="stmt"/>
+      <line num="79" count="0" type="stmt"/>
+      <line num="90" count="0" type="stmt"/>
+      <line num="100" count="0" type="stmt"/>
+      <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="110" count="0" type="stmt"/>
+      <line num="120" count="0" type="stmt"/>
+      <line num="129" count="0" type="cond" truecount="0" falsecount="7"/>
+      <line num="131" count="0" type="stmt"/>
+      <line num="133" count="0" type="stmt"/>
+      <line num="135" count="0" type="stmt"/>
+      <line num="137" count="0" type="stmt"/>
+      <line num="139" count="0" type="stmt"/>
+      <line num="141" count="0" type="stmt"/>
+      <line num="143" count="0" type="stmt"/>
+      <line num="145" count="0" type="stmt"/>
+      <line num="149" count="0" type="stmt"/>
+      <line num="171" count="0" type="stmt"/>
+      <line num="182" count="0" type="stmt"/>
+      <line num="196" count="0" type="stmt"/>
+      <line num="208" count="0" type="stmt"/>
+      <line num="219" count="0" type="stmt"/>
+      <line num="231" count="0" type="stmt"/>
+      <line num="242" count="0" type="stmt"/>
+      <line num="243" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="244" count="0" type="stmt"/>
+      <line num="245" count="0" type="stmt"/>
+      <line num="246" count="0" type="stmt"/>
+      <line num="247" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="249" count="0" type="stmt"/>
+      <line num="250" count="0" type="stmt"/>
+      <line num="252" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="253" count="0" type="stmt"/>
+      <line num="255" count="0" type="stmt"/>
+      <line num="259" count="0" type="stmt"/>
+      <line num="269" count="0" type="stmt"/>
+      <line num="282" count="1" type="stmt"/>
+    </file>
+    <file name="fs.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/fs.js">
+      <metrics statements="20" coveredstatements="5" conditionals="6" coveredconditionals="2" methods="8" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="38" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="47" count="1" type="stmt"/>
+    </file>
+    <file name="pricing-config.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/pricing-config.js">
+      <metrics statements="32" coveredstatements="8" conditionals="12" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="46" count="0" type="stmt"/>
+      <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="48" count="0" type="stmt"/>
+      <line num="56" count="0" type="stmt"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="63" count="1" type="stmt"/>
+      <line num="65" count="1" type="stmt"/>
+      <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="74" count="0" type="stmt"/>
+      <line num="75" count="0" type="stmt"/>
+      <line num="77" count="0" type="stmt"/>
+      <line num="81" count="0" type="stmt"/>
+      <line num="82" count="0" type="stmt"/>
+      <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="87" count="0" type="stmt"/>
+      <line num="88" count="0" type="stmt"/>
+      <line num="89" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="93" count="0" type="stmt"/>
+      <line num="94" count="0" type="stmt"/>
+      <line num="95" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="99" count="0" type="stmt"/>
+      <line num="103" count="0" type="stmt"/>
+      <line num="107" count="0" type="stmt"/>
+    </file>
+    <file name="sku.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/sku.js">
+      <metrics statements="275" coveredstatements="170" conditionals="166" coveredconditionals="87" methods="29" coveredmethods="22"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="42" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="45" count="9" type="stmt"/>
+      <line num="47" count="9" type="stmt"/>
+      <line num="48" count="9" type="stmt"/>
+      <line num="49" count="9" type="stmt"/>
+      <line num="52" count="9" type="stmt"/>
+      <line num="54" count="9" type="stmt"/>
+      <line num="55" count="9" type="stmt"/>
+      <line num="56" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="57" count="9" type="stmt"/>
+      <line num="59" count="0" type="stmt"/>
+      <line num="61" count="9" type="stmt"/>
+      <line num="65" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="68" count="9" type="stmt"/>
+      <line num="71" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="72" count="0" type="stmt"/>
+      <line num="74" count="9" type="stmt"/>
+      <line num="75" count="9" type="cond" truecount="1" falsecount="1"/>
+      <line num="79" count="6" type="stmt"/>
+      <line num="83" count="13" type="cond" truecount="1" falsecount="6"/>
+      <line num="85" count="0" type="stmt"/>
+      <line num="91" count="0" type="stmt"/>
+      <line num="93" count="13" type="stmt"/>
+      <line num="101" count="126" type="cond" truecount="2" falsecount="0"/>
+      <line num="102" count="36" type="cond" truecount="2" falsecount="0"/>
+      <line num="104" count="90" type="cond" truecount="2" falsecount="0"/>
+      <line num="105" count="63" type="stmt"/>
+      <line num="109" count="63" type="cond" truecount="2" falsecount="0"/>
+      <line num="110" count="13" type="stmt"/>
+      <line num="112" count="63" type="stmt"/>
+      <line num="114" count="90" type="stmt"/>
+      <line num="119" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="120" count="3" type="stmt"/>
+      <line num="122" count="0" type="stmt"/>
+      <line num="127" count="2" type="stmt"/>
+      <line num="132" count="2" type="stmt"/>
+      <line num="133" count="2" type="stmt"/>
+      <line num="138" count="2" type="stmt"/>
+      <line num="139" count="2" type="stmt"/>
+      <line num="140" count="2" type="stmt"/>
+      <line num="141" count="2" type="stmt"/>
+      <line num="146" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="147" count="0" type="stmt"/>
+      <line num="148" count="0" type="stmt"/>
+      <line num="149" count="0" type="stmt"/>
+      <line num="154" count="34" type="cond" truecount="5" falsecount="2"/>
+      <line num="157" count="0" type="stmt"/>
+      <line num="162" count="17" type="stmt"/>
+      <line num="164" count="6" type="stmt"/>
+      <line num="166" count="11" type="stmt"/>
+      <line num="172" count="112" type="stmt"/>
+      <line num="173" count="112" type="stmt"/>
+      <line num="174" count="112" type="stmt"/>
+      <line num="175" count="112" type="cond" truecount="4" falsecount="0"/>
+      <line num="176" count="78" type="stmt"/>
+      <line num="179" count="34" type="cond" truecount="5" falsecount="6"/>
+      <line num="182" count="11" type="stmt"/>
+      <line num="183" count="11" type="stmt"/>
+      <line num="184" count="11" type="stmt"/>
+      <line num="185" count="11" type="stmt"/>
+      <line num="189" count="0" type="stmt"/>
+      <line num="190" count="0" type="stmt"/>
+      <line num="191" count="0" type="stmt"/>
+      <line num="195" count="6" type="stmt"/>
+      <line num="197" count="6" type="stmt"/>
+      <line num="198" count="6" type="cond" truecount="4" falsecount="1"/>
+      <line num="199" count="0" type="stmt"/>
+      <line num="200" count="0" type="stmt"/>
+      <line num="202" count="6" type="stmt"/>
+      <line num="204" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="205" count="6" type="stmt"/>
+      <line num="207" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="208" count="0" type="stmt"/>
+      <line num="209" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="210" count="0" type="stmt"/>
+      <line num="212" count="6" type="stmt"/>
+      <line num="213" count="6" type="stmt"/>
+      <line num="214" count="6" type="stmt"/>
+      <line num="218" count="0" type="stmt"/>
+      <line num="219" count="0" type="stmt"/>
+      <line num="220" count="0" type="stmt"/>
+      <line num="221" count="0" type="stmt"/>
+      <line num="227" count="0" type="stmt"/>
+      <line num="228" count="0" type="stmt"/>
+      <line num="229" count="0" type="stmt"/>
+      <line num="230" count="0" type="stmt"/>
+      <line num="234" count="0" type="stmt"/>
+      <line num="236" count="0" type="stmt"/>
+      <line num="237" count="0" type="stmt"/>
+      <line num="238" count="0" type="stmt"/>
+      <line num="239" count="0" type="stmt"/>
+      <line num="240" count="0" type="stmt"/>
+      <line num="243" count="10" type="stmt"/>
+      <line num="245" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="246" count="3" type="stmt"/>
+      <line num="248" count="10" type="stmt"/>
+      <line num="249" count="10" type="stmt"/>
+      <line num="250" count="10" type="stmt"/>
+      <line num="253" count="1" type="stmt"/>
+      <line num="254" count="1" type="stmt"/>
+      <line num="255" count="1" type="stmt"/>
+      <line num="256" count="1" type="stmt"/>
+      <line num="259" count="6" type="stmt"/>
+      <line num="260" count="6" type="stmt"/>
+      <line num="261" count="6" type="stmt"/>
+      <line num="264" count="0" type="stmt"/>
+      <line num="268" count="34" type="cond" truecount="4" falsecount="0"/>
+      <line num="269" count="10" type="stmt"/>
+      <line num="270" count="10" type="stmt"/>
+      <line num="272" count="34" type="cond" truecount="2" falsecount="0"/>
+      <line num="273" count="6" type="stmt"/>
+      <line num="275" count="34" type="cond" truecount="2" falsecount="0"/>
+      <line num="276" count="10" type="stmt"/>
+      <line num="280" count="34" type="cond" truecount="1" falsecount="1"/>
+      <line num="281" count="0" type="stmt"/>
+      <line num="283" count="34" type="stmt"/>
+      <line num="284" count="34" type="cond" truecount="2" falsecount="0"/>
+      <line num="285" count="24" type="stmt"/>
+      <line num="289" count="34" type="cond" truecount="2" falsecount="0"/>
+      <line num="290" count="12" type="stmt"/>
+      <line num="293" count="22" type="stmt"/>
+      <line num="301" count="24" type="stmt"/>
+      <line num="305" count="24" type="stmt"/>
+      <line num="309" count="24" type="stmt"/>
+      <line num="311" count="24" type="cond" truecount="1" falsecount="1"/>
+      <line num="312" count="0" type="stmt"/>
+      <line num="315" count="24" type="cond" truecount="1" falsecount="1"/>
+      <line num="316" count="0" type="stmt"/>
+      <line num="317" count="0" type="stmt"/>
+      <line num="319" count="24" type="stmt"/>
+      <line num="324" count="11" type="stmt"/>
+      <line num="325" count="11" type="cond" truecount="1" falsecount="1"/>
+      <line num="331" count="0" type="stmt"/>
+      <line num="332" count="0" type="cond" truecount="0" falsecount="3"/>
+      <line num="334" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="335" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="336" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="337" count="0" type="stmt"/>
+      <line num="339" count="0" type="stmt"/>
+      <line num="342" count="0" type="stmt"/>
+      <line num="345" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="346" count="0" type="stmt"/>
+      <line num="348" count="0" type="stmt"/>
+      <line num="355" count="110" type="stmt"/>
+      <line num="356" count="11" type="stmt"/>
+      <line num="357" count="11" type="stmt"/>
+      <line num="358" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="361" count="110" type="stmt"/>
+      <line num="362" count="11" type="stmt"/>
+      <line num="364" count="13" type="cond" truecount="1" falsecount="1"/>
+      <line num="365" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="366" count="0" type="stmt"/>
+      <line num="368" count="13" type="cond" truecount="1" falsecount="1"/>
+      <line num="369" count="0" type="stmt"/>
+      <line num="371" count="13" type="stmt"/>
+      <line num="375" count="11" type="stmt"/>
+      <line num="376" count="14" type="stmt"/>
+      <line num="377" count="14" type="cond" truecount="3" falsecount="1"/>
+      <line num="378" count="0" type="stmt"/>
+      <line num="382" count="14" type="cond" truecount="2" falsecount="0"/>
+      <line num="383" count="4" type="stmt"/>
+      <line num="384" count="4" type="stmt"/>
+      <line num="387" count="10" type="cond" truecount="2" falsecount="0"/>
+      <line num="388" count="5" type="stmt"/>
+      <line num="390" count="5" type="stmt"/>
+      <line num="391" count="5" type="stmt"/>
+      <line num="394" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="395" count="9" type="stmt"/>
+      <line num="396" count="9" type="stmt"/>
+      <line num="397" count="9" type="stmt"/>
+      <line num="398" count="9" type="stmt"/>
+      <line num="400" count="2" type="stmt"/>
+      <line num="412" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="413" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="414" count="4" type="cond" truecount="3" falsecount="1"/>
+      <line num="415" count="4" type="stmt"/>
+      <line num="419" count="0" type="stmt"/>
+      <line num="420" count="0" type="stmt"/>
+      <line num="421" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="422" count="0" type="stmt"/>
+      <line num="423" count="0" type="stmt"/>
+      <line num="424" count="0" type="stmt"/>
+      <line num="428" count="0" type="stmt"/>
+      <line num="429" count="0" type="stmt"/>
+      <line num="433" count="6" type="stmt"/>
+      <line num="437" count="0" type="stmt"/>
+      <line num="438" count="0" type="stmt"/>
+      <line num="439" count="0" type="stmt"/>
+      <line num="440" count="0" type="stmt"/>
+      <line num="441" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="442" count="0" type="stmt"/>
+      <line num="444" count="0" type="stmt"/>
+      <line num="445" count="0" type="stmt"/>
+      <line num="447" count="0" type="stmt"/>
+      <line num="448" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="449" count="0" type="stmt"/>
+      <line num="450" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="451" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="452" count="0" type="stmt"/>
+      <line num="458" count="0" type="stmt"/>
+      <line num="464" count="0" type="stmt"/>
+      <line num="467" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="468" count="0" type="stmt"/>
+      <line num="473" count="0" type="stmt"/>
+      <line num="475" count="0" type="stmt"/>
+      <line num="484" count="6" type="stmt"/>
+      <line num="485" count="6" type="stmt"/>
+      <line num="486" count="6" type="stmt"/>
+      <line num="487" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="488" count="6" type="stmt"/>
+      <line num="490" count="6" type="stmt"/>
+      <line num="491" count="6" type="stmt"/>
+      <line num="493" count="6" type="stmt"/>
+      <line num="494" count="6" type="stmt"/>
+      <line num="496" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="497" count="6" type="cond" truecount="1" falsecount="1"/>
+      <line num="498" count="6" type="stmt"/>
+      <line num="499" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="503" count="4" type="stmt"/>
+      <line num="504" count="4" type="stmt"/>
+      <line num="506" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="507" count="3" type="stmt"/>
+      <line num="511" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="513" count="4" type="stmt"/>
+      <line num="517" count="4" type="stmt"/>
+      <line num="518" count="4" type="stmt"/>
+      <line num="520" count="0" type="stmt"/>
+      <line num="524" count="0" type="stmt"/>
+      <line num="527" count="4" type="stmt"/>
+      <line num="530" count="6" type="stmt"/>
+      <line num="536" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="538" count="4" type="stmt"/>
+      <line num="539" count="4" type="cond" truecount="1" falsecount="1"/>
+      <line num="540" count="4" type="stmt"/>
+      <line num="546" count="4" type="stmt"/>
+      <line num="549" count="4" type="stmt"/>
+      <line num="550" count="4" type="stmt"/>
+      <line num="551" count="4" type="stmt"/>
+      <line num="556" count="0" type="stmt"/>
+      <line num="557" count="0" type="stmt"/>
+      <line num="558" count="0" type="stmt"/>
+      <line num="561" count="0" type="stmt"/>
+      <line num="562" count="0" type="stmt"/>
+      <line num="563" count="0" type="stmt"/>
+      <line num="564" count="0" type="stmt"/>
+      <line num="568" count="0" type="stmt"/>
+      <line num="569" count="0" type="stmt"/>
+      <line num="571" count="0" type="stmt"/>
+      <line num="575" count="0" type="stmt"/>
+      <line num="577" count="0" type="stmt"/>
+      <line num="580" count="0" type="stmt"/>
+      <line num="585" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="586" count="0" type="cond" truecount="0" falsecount="4"/>
+      <line num="587" count="0" type="stmt"/>
+      <line num="588" count="0" type="stmt"/>
+      <line num="589" count="0" type="stmt"/>
+      <line num="593" count="0" type="stmt"/>
+      <line num="595" count="0" type="stmt"/>
+      <line num="600" count="0" type="stmt"/>
+      <line num="601" count="0" type="stmt"/>
+      <line num="605" count="22" type="stmt"/>
+      <line num="606" count="22" type="stmt"/>
+      <line num="610" count="1" type="stmt"/>
+    </file>
+    <file name="skuDataHandler.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/skuDataHandler.js">
+      <metrics statements="17" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="31" count="0" type="stmt"/>
+      <line num="35" count="0" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="51" count="0" type="stmt"/>
+      <line num="55" count="0" type="stmt"/>
+      <line num="59" count="1" type="stmt"/>
+    </file>
+    <file name="util.js" path="/Users/jeanno/Projects/kickscrew/admin-portal/nexus/price-engine/src/util.js">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="7" count="6" type="stmt"/>
+    </file>
+  </project>
+</coverage>

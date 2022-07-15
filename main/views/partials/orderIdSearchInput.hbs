@@ -1,0 +1,7 @@
+<div class="position-relative order-id-search-input-wrapper">
+  <input class="form-control order-id-search-input" id="{{inputId}}" autocomplete="off"
+    name="search" type="search" placeholder="Order ID" aria-label="Search"
+    value="{{#if searchQuery}}{{searchQuery}}{{/if}}"
+    data-bs-auto-close="true" aria-expanded="false">
+  <ul class="dropdown-menu{{#if dropdownCls}} {{dropdownCls}}{{/if}}" aria-labelledby="{{inputId}}" tabindex="0"></ul>
+</div>

@@ -1,0 +1,77 @@
+{{#> mainLayout }}
+<h1>Customer details</h1>
+{{#if customer}}
+<h3>{{ customer.name }}</h3>
+<div class="row">
+  <div class="col">
+    {{#with customer}}
+    <p class="d-flex">
+      <i alt="email" class="svgicon svgicon-mail bg-info bg-gradient me-1"></i>
+      <span><a href="mailto:{{ email }}">{{ email }}</a></span>
+    </p>
+    <p class="d-flex">
+      <i alt="address" class="svgicon svgicon-address bg-info bg-gradient me-1"></i>
+      <span>
+      {{#each address}}
+        {{#if this}}{{ this }}<br />{{/if}}
+      {{/each}}
+      </span>
+    </p>
+    <p class="d-flex">
+      <i alt="phone" class="svgicon svgicon-phone bg-info bg-gradient me-1"></i>
+      <span><a href="tel:{{ contactNumber }}">{{ contactNumber }}</a></span>
+    </p>
+    {{/with}}
+  </div>
+  {{#if orders}}
+  <div class="col-9">
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>#</th>
+        <th>Order Date</th>
+        <th>Ref Number</th>
+        <th>Order Status</th>
+        <th>Amount</th>
+        <th>Payment &amp; Status </th>
+        <th>Carrier</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        {{#each orders}}
+        <tr>
+          <td>{{ data.row_number }}</td>
+          <td>{{ prettifyDate data.order_date }}</td>
+          <td>{{ data.ref_number }}</td>
+          <td>{{ data.status }}</td>
+          <td>{{ data.amount }}</td>
+          <td>{{ data.paypal_return_status }}</td>
+          <td>{{ data.shipment2 }}</td>
+          <td>
+            <a href="{{../navBarData.orders.path}}/view/{{data.ref_number}}" class="btn btn-primary">View Order</a>
+            <a href="{{../navBarData.orders.path}}/edit/{{data.ref_number}}" class="btn btn-secondary">Edit Order</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+</div>
+<table class="table table-striped table-hover">
+  <tbody>
+    {{#each customer.data}}
+    <tr>
+      <th scope="row">{{ @key }}</th>
+      <td>{{ this }}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{>comments commentType="customer" targetId=customer.id}}
+{{else}}
+<div>
+  Customer #{{ id }} not found
+</div>
+{{/if}}
+
+{{/mainLayout}}

@@ -1,0 +1,33 @@
+{
+  "name": "kc-nexus-price-fix",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "npx jest",
+    "build": "gcloud builds submit --project=kscw-nexus-a7tp-stg --tag asia-east1-docker.pkg.dev/kscw-nexus-a7tp-stg/cloud-run-source-deploy/price-fix-auto",
+    "deploy": "gcloud run deploy price-fix-auto --project=kscw-nexus-a7tp-stg --image=asia-east1-docker.pkg.dev/kscw-nexus-a7tp-stg/cloud-run-source-deploy/price-fix-auto --region=asia-east1",
+    "build-prod": "gcloud builds submit --project=kscw-nexus-5z8v-prd --tag gcr.io/kscw-nexus-5z8v-prd/price-fix-auto",
+    "deploy-prod": "gcloud run deploy price-fix-auto --project=kscw-nexus-5z8v-prd --image=gcr.io/kscw-nexus-5z8v-prd/price-fix-auto --region=asia-east1"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
+    "@google-cloud/pubsub": "^2.18.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.21",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.0.3",
+    "p-queue": "^7.2.0",
+    "prettier": "2.6.2"
+  }
+}

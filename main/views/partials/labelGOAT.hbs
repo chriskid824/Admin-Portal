@@ -1,0 +1,33 @@
+{{#each orders }}
+<span class="style1">
+  <div class="style1" style="position:relative; margin-top: 12px;">
+    <div class="GoatOrderID">{{ this.data.order_id }}</div>
+    <div class="GoatOrderDate">
+      {{ this.data.labelOrderDate }}
+    </div>
+    <div class="GoatTrackNum">{{ this.data.track_num }}</div>
+    <div class="GoatBarcodeContainer">
+      <img id="barcode" width="150" height="20" align="bottom"></img>
+      <script type="text/javascript">
+        var barcode = "{{ this.data.order_id }}";
+        JsBarcode("#barcode", barcode, {
+          format: "CODE128",
+          width: 2,
+          height: 30,
+          margin: 0,
+          displayValue: false
+        });
+      </script>
+    </div>
+    <div class="GoatFooterContainer">
+      {{#if (lt this.data.totalqty 4)}}
+      {{{ this.data.skuName }}}
+      {{/if}}
+      {{#if this.data.deadline}}
+      Deadline: {{this.data.deadline}}
+      {{/if}}
+    </div>
+  </div>
+</span>
+<p style="page-break-before:always">&emsp;</P>
+{{/each}}

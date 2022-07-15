@@ -1,0 +1,9 @@
+{{#> mainLayout }}
+<form method="post" enctype="multipart/form-data" class="mt-5 mb-5">
+  <input class="form-control form-control-lg" id="formFileLg" type="file"
+    name="{{ fileInputName }}" accept="{{ acceptedFileType }}"
+    {{ fileInputAttributes }}
+  />
+  <input type="submit" class="btn btn-primary w-100 mt-2" value="Submit" />
+</form>
+{{/mainLayout}}

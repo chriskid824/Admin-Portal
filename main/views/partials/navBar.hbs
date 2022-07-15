@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    {{! <a class="navbar-brand" href="#">KICKSCREW</a> }}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#each navBarData}}
+        <li class="nav-item{{#if hasChildren}} dropdown{{/if}}">
+          <a class="nav-link{{#if hasChildren}} dropdown-toggle{{/if}}{{#if active}} active{{/if}}"
+            {{~#if hasChildren}} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"{{/if}}
+            {{~#if active}} aria-current="page"{{/if}} href="{{path}}">{{title}}</a>
+          {{#if hasChildren}}
+          <ul class="dropdown-menu">
+            {{#each items}}
+            <li>
+              {{#if title}}
+              <a class="dropdown-item" href="{{../path}}{{path}}">{{title}}</a>
+              {{^}}
+              <hr class="dropdown-divider">
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+      <form class="d-flex">
+        {{>orderIdSearchInput inputId='navbar-search-input' dropdownCls='dropdown-menu-lg-end'}}
+        <button class="btn btn-outline-success ms-2" type="submit">Search</button>
+        <a class="nav-link" role="button" href="/auth/logout">Logout</a>
+      </form>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript">
+const pathMap = {
+  order: {
+    list: '{{navBarData.orders.path}}',
+    search: '{{navBarData.orders.path}}{{navBarData.orders.items.search.path}}'
+  }
+};
+</script>

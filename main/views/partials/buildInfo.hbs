@@ -1,0 +1,8 @@
+{{#with buildInfo}}
+{{#if time}}
+<div class="fixed-bottom p-1 d-flex">
+  <span class="badge text-dark fw-normal">Deployed: {{ prettifyDate time }}</span>
+  {{#if commit}}<span class="badge bg-secondary">{{ commit }}</span>{{/if}}
+</div>
+{{/if}}
+{{/with}}

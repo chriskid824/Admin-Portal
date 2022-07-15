@@ -1,0 +1,53 @@
+<style>
+  #comment-none:not(:last-child) {
+    display: none;
+  }
+</style>
+
+<div class="card mb-3">
+  <div class="card-header">
+    Comments (<span id="comment-count">{{comments.length}}</span>)
+  </div>
+  <ul class="list-group list-group-flush" id="comment-list">
+    <li class="list-group-item" id="comment-none">No comments yet.</li>
+    {{#each comments}}
+    <li class="list-group-item">
+      <h5 class="card-title">{{author.username}}
+        {{#if (seq author.id ../user.id)}}
+        <button class="float-end btn btn-outline-danger btn-sm btn-delete" data-id="{{id}}">
+          Delete
+        </button>
+        {{/if}}
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{prettifiedCreateDate}}</h6>
+      <p class="card-text">{{body}}</p>
+    </li>
+    {{/each}}
+  </ul>
+  {{#if commentType}}
+  <div class="card-footer">
+    <form id="comment-form"
+      action="/{{commentType}}/api/comment" method="post"
+      data-redirect="/{{commentType}}"
+    >
+      <input name="id" value="{{targetId}}" hidden />
+      <div class="mb-2">
+        <label for="commentInput" class="form-label">New comment</label>
+        <textarea class="form-control" id="commentInput" name="comment" rows="3"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Post Comment</button>
+    </form>
+  </div>
+  {{/if}}
+</div>
+
+<template id="comment-template">
+  <li class="list-group-item">
+    <h5 class="card-title">
+      <span class="author-name">{{user.username}}</span>
+      <button class="float-end btn btn-outline-danger btn-sm btn-delete">Delete</button>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted"></h6>
+    <p class="card-text"></p>
+  </li>
+</template>

@@ -1,0 +1,222 @@
+<script src="/reportViewFilter.js"></script>
+<form class="filterWrapper" name="search" action="/order" method="get">
+  <input type="hidden" name="page" value="1">
+  <input type="hidden" name="search" value="1">
+  <table class="table">
+    <tbody>
+      <div class="form-group">
+        <th scope="row"><label for="ref_number" class="form-label">Ref#</label></th>
+        <td>
+          <textarea type="search" class="form-control-sm" id="ref_number" aria-describedby="ref_number"
+            name="ref_number" data-bs-toggle="tooltip" data-bs-placement="top"
+            title="All separated by , ; ⌴ or ↵">{{queryObject.ref_number}}</textarea>
+        </td>
+        <th><label for="order_date">Order Date:</label></th>
+        <td>
+          <input type="text" class="datetimepicker" id="order_date" name="order_date" autocomplete="off"
+            data-enddateinput="order_date_end" data-datestring="{{queryObject.order_date}}" />
+          <input type="text" id="order_date_end" name="order_date_end" autocomplete="off"
+            data-datestring="{{queryObject.order_date_end}}" />
+        </td>
+        <th scope="row"><label for="custom_code" class="form-label">Item</label></th>
+        <td>
+          <input type="search" class="form-control-sm" id="custom_code" name="custom_code"
+            value="{{queryObject.custom_code}}" />
+        </td>
+        <th><label for="status">Status</label></th>
+        <td>
+          <select class="js-example-basic-multiple" id="status" name="status">
+            <option value=""> --------- </option>
+            {{#each orderFilterData.status}}
+            <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.status) }} selected {{/if}}>
+              {{ this.displayText }}
+            </option>
+            {{/each}}
+            {{!-- {{#each statusOpt}}
+            <option>{{ this.name }}</option>
+            {{/each}} --}}
+          </select>
+        </td>
+        <th><label for="erpstatus">ERP Status</label></th>
+        <td>
+          <select class="js-example-basic-multiple" id="erpstatus" name="erpstatus" value="{{queryObject.erpstatus}}">
+            <option value="">- - -</option>
+            {{#each orderFilterData.erpstatus}}
+              <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.erpstatus) }} selected {{/if}}>
+                {{ this.displayText }}
+              </option>
+            {{/each}}
+          </select>
+        </td>
+        <tr>
+          <th><label for="shipping_date">Ship Date:</label></th>
+          <td>
+            <input type="text" class="datetimepicker" id="shipping_date" name="shipping_date" autocomplete="off"
+              data-enddateinput="shipping_date_end" data-datestring="{{queryObject.shipping_date}}" />
+            <input type="text" id="shipping_date_end" name="shipping_date_end" autocomplete="off"
+              data-datestring="{{queryObject.shipping_date_end}}" />
+          </td>
+          <th scope="row"><label for="paypal_id" class="form-label">Trxn_ID</label></th>
+          <td>
+            <textarea type="search" class="form-control-sm" id="paypal_id" aria-describedby="paypal_id" name="paypal_id"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="All separated by , ; ⌴ or ↵"></textarea>
+          </td>
+          <th scope="row"><label for="track_num" class="form-label">Track#</label></th>
+          <td>
+            <textarea type="search" class="form-control-sm" id="track_num" aria-describedby="track_num" name="track_num"
+              data-bs-toggle="tooltip" data-bs-placement="top"
+              title="All separated by , ; ⌴ or ↵">{{queryObject.track_num}}</textarea>
+          </td>
+          <th scope="row"><label for="shipment2">Shipment</label></th>
+          <td>
+            <select class="js-example-basic-multiple" id="shipment2" name="shipment2" value="{{queryObject.shipment2}}">
+              <option value=""> --------- </option>
+              {{#each orderFilterData.shipment2}}
+                <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.shipment2) }} selected {{/if}}>
+                  {{ this.displayText }}
+                </option>
+              {{/each}}
+            </select>
+          </td>
+          <th scope="row"><label for="paypal_return_status" class="form-label">Payment Gateway</label></th>
+          <td>
+            <select class="js-example-basic-multiple" id="paypal_return_status" name="paypal_return_status">
+              <option value=""> --------- </option>
+              {{#each orderFilterData.paypal_return_status}}
+                <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.paypal_return_status) }} selected {{/if}}>
+                  {{ this.displayText }}
+                </option>
+              {{/each}}
+            </select>
+          </td>
+        <tr>
+          <th scope="row"><label for="contactperson" class="form-label">Name</label></th>
+          <td>
+            <input type="search" class="form-control-sm" id="contactperson" aria-describedby="contactperson"
+              name="contactperson" value="{{queryObject.contactperson}}">
+          </td>
+          <th scope="row"><label for="contactnumber" class="form-label">Phone</label></th>
+          <td>
+            <input type="search" class="form-control-sm" id="contactnumber" aria-describedby="contactnumber"
+              name="contactnumber" value="{{queryObject.contactnumber}}">
+          </td>
+          <th scope="row"><label for="contact_email" class="form-label">Email</label></th>
+          <td>
+            <input type="search" class="form-control-sm" id="contact_email" aria-describedby="contact_email"
+              name="contact_email" value="{{queryObject.contact_email}}">
+          </td>
+          <th scope="row"><label for="address" class="form-label">Address</label></th>
+          <td>
+            <input type="search" class="form-control-sm" id="address" aria-describedby="address" name="address"
+              value="{{queryObject.address}}">
+          </td>
+          <th scope="row"><label for="country">Country</label></th>
+          <td>
+            <input type="search" class="form-control-sm" id="country" aria-describedby="country" name="country"
+              value="{{queryObject.country}}">
+          </td>
+        </tr>
+        </tr>
+        <tr>
+          <th scope="row"><label for="amount" class="form-label">Amount</label></th>
+          <td>
+            <select type="search" class="form-control-sm" id="amountopt" name="amountopt">
+              <option value=""> --------- </option>
+              {{#each orderFilterData.operator}}
+                <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.amountopt) }} selected {{/if}}>
+                  {{ this.displayText }}
+                </option>
+              {{/each}}
+            </select>
+            <input type="search" class="form-control-sm" id="amount" aria-describedby="amount" name="amount"
+              value="{{queryObject.amount}}">
+          </td>
+          <th scope="row"><label for="totalqty" class="form-label">Quantity</label></th>
+          <td>
+            <select type="search" class="form-control-sm" id="totalqtyopt" name="totalqtyopt">
+              <option value=""> --------- </option>
+              {{#each orderFilterData.operator}}
+                <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.totalqtyopt) }} selected {{/if}}>
+                  {{ this.displayText }}
+                </option>
+              {{/each}}
+            </select>
+            <input type="search" class="form-control-sm" id="totalqty" aria-describedby="totalqty" name="totalqty"
+              value="{{queryObject.totalqty}}">
+          </td>
+          <th scope="row"><label for="sortBy" class="form-label">Sort</label></th>
+          <td>
+            <select type="search" class="form-control-sm" id="sortBy" name="sortBy">
+              <option value="">- - -</option>
+              {{#each orderFilterData.sortBy}}
+                <option value="{{ this.value }}" {{#if (eq this.value ../queryObject.sortBy) }} selected {{/if}}>
+                  {{ this.displayText }}
+                </option>
+              {{/each}}
+              {{!-- <option value="I">Tracking Input Order</option> --}}
+            </select>
+          </td>
+          <th scope="row"><label for="delivery_charge" class="form-label">Free Shipping</label></th>
+          <td>
+            <input type="checkbox" id="delivery_charge" name="delivery_charge" value="0">
+          </td>
+          <th><label for="address_date">Address Date:</label></th>
+          <td>
+            <input type="text" class="datetimepicker" id="address_date" name="address_date" autocomplete="off"
+              data-enddateinput="address_date_end" data-datestring="{{queryObject.address_date}}" />
+            <input type="text" id="address_date_end" name="address_date_end" autocomplete="off"
+              data-datestring="{{queryObject.address_date_end}}" />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><label for="transition_id" class="form-label">Transition ID</label></th>
+          <td>
+            <textarea type="search" class="form-control-sm" id="transition_id" aria-describedby="transition_id"
+              name="transition_id" data-bs-toggle="tooltip" data-bs-placement="top"
+              title="All separated by , ; ⌴ or ↵"></textarea>
+          </td>
+          <th scope="row"><label for="order_id" class="form-label">Order ID</label></th>
+          <td>
+            <textarea class="form-control-sm" id="order_id" aria-describedby="order_id" name="order_id"
+              data-bs-toggle="tooltip" data-bs-placement="top" title="All separated by , ; ⌴ or ↵"></textarea>
+          </td>
+          <th scope="row"><label for="udt" class="form-label">Cancel Date</label></th>
+          <td>
+            <input type="text" class="datetimepicker" id="udt" name="udt" autocomplete="off" data-enddateinput="udt_end"
+              data-datestring="{{queryObject.udt}}" />
+            <input type="text" id="udt_end" name="udt_end" autocomplete="off" data-datestring="{{queryObject.udt_end}}" />
+          </td>
+          <td>
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exportExcelButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Export to Excel
+              </button>
+              <div class="dropdown-menu" aria-labelledby="exportExcelButton">
+                {{#each orderFilterData.exportExcel}}
+                <a class="dropdown-item" role="button" onclick="downloadCSV('{{../filterQuery}}', '{{value}}')">{{displayText}}</a>
+                {{/each}}
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exportLabelButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Export Shipping Labels
+              </button>
+              <div class="dropdown-menu" aria-labelledby="exportLabelButton">
+                {{#each orderFilterData.exportLabels}}
+                <a class="dropdown-item" role="button" onclick="printLabel('{{value}}')">{{displayText}}</a>
+                {{/each}}
+              </div>
+            </div>
+          </td>
+          <td>
+            <input type="submit" class="btn btn-secondary btn-sm" value="Search" />
+            <input type="button" class="btn btn-secondary btn-sm" onclick="clearForm(this.form)" value="Clear" />
+          </td>
+          <td></td>
+        </tr>
+      </div>
+    </tbody>
+  </table>
+</form>

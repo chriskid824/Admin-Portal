@@ -1,0 +1,43 @@
+{
+  "name": "image-collector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "node dist/test.js",
+    "create-du": "ts-node-esm ./src/scripts/createDuTasks.ts",
+    "create-snkrdunk": "ts-node-esm ./src/scripts/createSnkrdunkTasks.ts",
+    "sync-drive": "ts-node-esm ./src/scripts/syncFromGoogleDrive.ts",
+    "build": "./build.sh dev",
+    "deploy": "gcloud run deploy image-collector --project=kscw-nexus-a7tp-stg --image=gcr.io/kscw-nexus-a7tp-stg/image-collector --platform=managed --region=asia-east1",
+    "build-prod": "./build.sh prod",
+    "deploy-prod": "gcloud run deploy image-collector --project=kscw-nexus-5z8v-prd --image=gcr.io/kscw-nexus-5z8v-prd/image-collector --platform=managed --region=asia-east1"
+  },
+  "author": "",
+  "license": "",
+  "type": "module",
+  "dependencies": {
+    "@google-cloud/pubsub": "^2.19.0",
+    "@google-cloud/storage": "^5.18.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "firebase-admin": "^10.0.2",
+    "googleapis": "^39.2.0",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.1",
+    "sharp": "^0.30.2",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.19",
+    "@types/node-fetch": "^2.6.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.6.0"
+  }
+}

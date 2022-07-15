@@ -1,0 +1,25 @@
+{{#each orders }}
+<div class="style1" style="position:relative; margin-top: 32px;">
+  <div class="LKKCBarcodeContainer">
+    <img id="barcode" width="100" height="20" align="bottom" />
+  </div>
+  <script type="text/javascript">
+    var barcode = "{{ this.data.order_id }}";
+    JsBarcode("#barcode", barcode, {
+      format: "CODE128",
+      width: 2,
+      height: 30,
+      margin: 0,
+      displayValue: false
+    });
+  </script>
+  <div class="LKKCRefNum">
+    {{#if (eq this.data.tempPrefix 'KS') }}
+      {{ this.data.ref_number }}
+    {{else}}
+      {{this.data.tempPrefix}}-{{ this.data.transition_id }}
+    {{/if}}
+  </div>
+</div>
+<p style="page-break-before:always">&emsp;</P>
+{{/each}}

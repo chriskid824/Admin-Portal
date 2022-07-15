@@ -1,0 +1,246 @@
+{{#> mainLayout}}
+{{#*inline "head"}}
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{{~/inline}}
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path
+      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+  </symbol>
+  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path
+      d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+  </symbol>
+</svg>
+<script src="/product.js"></script>
+<script src="/productCreate.js"></script>
+<style>
+  .required:after {
+    content: " *";
+    color: red;
+  }
+</style>
+<h1>Create Product</h1>
+<form id='createProductForm' method="post" action="create" enctype="multipart/form-data">
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col ps-0">
+        <table>
+          <tr>
+            <td colspan="2">
+              <div class="alert alert-warning" role="alert">
+                <b>Model number, Size, Gender, Metafields is <span style="color: red;">unchangeable</span>.</b><br />
+                User <span style="color: red;"><b>cannot</b></span> edit these fields again, please check it carefully.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="form-label">Category</label></td>
+            <td>
+              <select name="category_1" class="form-select" id="category_1" onchange="getCategories(this)">
+                <option value>----</option>
+                {{#each category_1}}
+                <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label class="form-label">Size Range</label>
+            </td>
+            <td>
+              <select class="form-select" name="size_range" id="size_range" onchange="getGenderAndType(this)">
+                <option value>-- Please Select Size Range --</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="form-label required" for="model_no">Model No.</label></td>
+            <td><input type="text" id="model_no" class="form-control" name="model_no" isValid='false' required /></td>
+          </tr>
+          <tr>
+            <td><label class="form-label required" for="product_name">Product Name</label></td>
+            <td><input type="text" id="product_name" class="form-control" name="product_name" required/></td>
+          </tr>
+	  <tr>
+            <td><label class="form-label" for="series">Series</label></td>
+            <td><input type="text" id="series" class="form-control" name="series"></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="retail_price">Retail Price(HKD)</label></td>
+            <td><input type="text" id="retail_price" class="form-control" name="retail_price" value="9999" /></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="sort_date">Sort Date</label></td>
+            <td><input type="date" id="sort_date" class="form-control" name="sort_date" value="{{today}}" /></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="usPrice">US Price(USD)</label></td>
+            <td><input type="text" id="usPrice" class="form-control" name="usPrice" value="1602" /></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="selling_qty">Selling Qty</label></td>
+            <td><input type="text" id="selling_qty" class="form-control" name="selling_qty" value="0" /></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="gender">Gender</label></td>
+            <td><select name="gender" id="gender" class="form-select" id="gender">
+                {{#each gender}}
+                <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+              </select></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="type">Product Type</label></td>
+            <td><select name="type" id="type" class="form-select" id="type">
+                {{#each type}}
+                <option value="{{this.id}}">{{this.name}}</option>
+                {{/each}}
+              </select></td>
+          </tr>
+          <tr>
+            <td><label class="form-label" for="shopify_type">Shopify Product Type</label></td>
+            <td><select name="shopify_type" id="shopify_type" class="form-select" id="type">
+                {{#each product_types}}
+                <option value="{{this.product_type_eng}}">{{this.product_type_eng}}</option>
+                {{/each}}
+              </select></td>
+          </tr>
+	  <tr>
+            <td><label class="form-label" for="vendor">Vendor</label></td>
+            <td><select name="vendor" id="vendor" class="form-select" id="vendor">
+                {{#each vendors}}
+                <option value="{{this.vendor}}">{{this.vendor}}</option>
+                {{/each}}
+              </select></td>
+          </tr>
+          {{!-- <tr>
+            <td><label class="form-label required" for="image-input">Images</label></td>
+            <td>
+              <div class="d-flex flex-column" id="image-list"></div>
+              <div class="position-relative">
+                <input type="file" name="images" accept=".jpg,.jpeg,.png,.gif" required
+                  class="position-absolute bottom-0 start-50 translate-middle-x pe-none bg-transparent border-0 w-100 h-100"
+                  id="image-input" onchange="addImagePlaceholder(this, 'image-template')" />
+                <label class="d-block btn btn-success btn-sm position-relative" for="image-input">Add</label>
+              </div>
+            </td>
+          </tr> --}}
+          <tr>
+            <td colspan="2"><input type="submit" class="btn btn-primary w-100 mt-2" value="Create" /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col">
+        <table>
+          <tr>
+            <td colspan="2">
+              <h3>Metafields<h3>
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_strap_material">strap_material</label></td>
+            <td><input type="text" name="metafield_strap_material" id="metafield_strap_material" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_case_material">case_material</label></td>
+            <td><input type="text" name="metafield_case_material" id="metafield_case_material" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_watch_caliber">watch_caliber</label></td>
+            <td><input type="text" name="metafield_watch_caliber" id="metafield_watch_caliber" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_display_mode">display_mode</label></td>
+            <td><input type="text" name="metafield_display_mode" id="metafield_display_mode" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_closure">closure</label></td>
+            <td><input type="text" name="metafield_closure" id="metafield_closure" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_upper_material">upper_material</label></td>
+            <td><input type="text" name="metafield_upper_material" id="metafield_upper_material" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_version">version</label></td>
+            <td><input type="text" name="metafield_version" id="metafield_version" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_thickness">thickness</label></td>
+            <td><input type="text" name="metafield_thickness" id="metafield_thickness" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_release_date">release_date</label></td>
+            <td><input type="text" name="metafield_release_date" id="metafield_release_date" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_style">style</label></td>
+            <td><input type="text" name="metafield_style" id="metafield_style" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_colorway">colorway</label></td>
+            <td><input type="text" name="metafield_colorway" id="metafield_colorway" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_heel_type">heel_type</label></td>
+            <td><input type="text" name="metafield_heel_type" id="metafield_heel_type" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_toe_type">toe_type</label></td>
+            <td><input type="text" name="metafield_toe_type" id="metafield_toe_type" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_upper">upper</label></td>
+            <td><input type="text" name="metafield_upper" id="metafield_upper" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_sole_material">sole_material</label></td>
+            <td><input type="text" name="metafield_sole_material" id="metafield_sole_material" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_functionality">functionality</label></td>
+            <td><input type="text" name="metafield_functionality" id="metafield_functionality" class="form-control">
+            </td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_season">season</label></td>
+            <td><input type="text" name="metafield_season" id="metafield_season" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_designer">designer</label></td>
+            <td><input type="text" name="metafield_designer" id="metafield_designer" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_size_report">size_report</label></td>
+            <td><input type="text" name="metafield_size_report" id="metafield_size_report" class="form-control"></td>
+          </tr>
+          <tr>
+            <td class="form-label"><label for="metafield_surface_crystal">surface_crystal</label></td>
+            <td><input type="text" name="metafield_surface_crystal" id="metafield_surface_crystal" class="form-control">
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+
+<template id="image-template">
+  <div class="image-list-item d-flex align-items-center pb-1">
+    <a href="" class="image-link" target="_blank">
+      <img src="" class="product-img img-thumbnail" />
+    </a>
+    <div class="flex-grow-1 ps-2 file-name"></div>
+    <div class="flex-shrink-1 ps-2">
+      <button class="btn btn-outline-danger btn-sm btn-delete">Remove</button>
+    </div>
+  </div>
+</template>
+{{/mainLayout}}

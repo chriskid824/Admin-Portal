@@ -1,0 +1,133 @@
+/* buttons */
+.btn.loading {
+    position: relative;
+}
+.btn.loading::after {
+    content: '';
+}
+
+/* icons */
+.icon, .svgicon {
+    width: 1.5em;
+    height: 1.5em;
+}
+.icon {
+    display: inline-block;
+    position: relative;
+}
+.icon::before, .icon::after {
+    content: '';
+    position: absolute;
+}
+.svgicon {
+    -webkit-mask-size: contain;
+            mask-size: contain;
+}
+
+.svgicon.svgicon-address {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><path d='M9,15a12 12 0 0 1 24,0l-9,20a3 3 0 0 1 -6,0l-9,-20l8,0a4 4 0 0 0 8,0a4 4 0 0 0 -8,0'></path></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><path d='M9,15a12 12 0 0 1 24,0l-9,20a3 3 0 0 1 -6,0l-9,-20l8,0a4 4 0 0 0 8,0a4 4 0 0 0 -8,0'></path></svg>");
+}
+.svgicon.svgicon-mail {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><g stroke-width='4' fill='none' stroke='black'><rect x='6' y='10' width='30' height='22' rx='3' /><path d='M6,10l13,13a4 2 0 0 0 4,0l13,-13'></path></g></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><g stroke-width='4' fill='none' stroke='black'><rect x='6' y='10' width='30' height='22' rx='3' /><path d='M6,10l13,13a4 2 0 0 0 4,0l13,-13'></path></g></svg>");
+}
+.svgicon.svgicon-phone {
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><path d='M2,34a8 8 0 0 1 1,-4a60 60 0 0 1 7,-5a8 8 0 0 1 4,1l2,3a6 6 0 0 0 2,0a80 80 0 0 0 11,-11a6 6 0 0 0 0,-2l-3,-2a8 8 0 0 1 -1,-4a60 60 0 0 1 5,-7a8 8 0 0 1 4,-1l5,6a8 8 0 0 1 0,4a55 55 0 0 1 -27,27a8 8 0 0 1 -4,0'></path></svg>");
+            mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='42' height='42'><path d='M2,34a8 8 0 0 1 1,-4a60 60 0 0 1 7,-5a8 8 0 0 1 4,1l2,3a6 6 0 0 0 2,0a80 80 0 0 0 11,-11a6 6 0 0 0 0,-2l-3,-2a8 8 0 0 1 -1,-4a60 60 0 0 1 5,-7a8 8 0 0 1 4,-1l5,6a8 8 0 0 1 0,4a55 55 0 0 1 -27,27a8 8 0 0 1 -4,0'></path></svg>");
+}
+
+/* loading spinner */
+/* eg. to apply loading spinner to .btn
+    .btn.loading {
+        position: relative;
+    }
+    .btn.loading::after {
+        content: '';
+    }
+*/
+.loading::after {
+    width: 1em;
+    height: 1em;
+    display: block;
+    box-sizing: border-box;
+    border: 2px #000 dotted;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    -webkit-animation: rotate 2s infinite linear;
+            animation: rotate 2s infinite linear;
+}
+
+/* cross out graphic overlay */
+.crossout {
+    position: relative;
+}
+.crossout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M100 0 L0 100 ' stroke='red' stroke-width='1'/><path d='M0 0 L100 100 ' stroke='red' stroke-width='1'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%, auto;
+}
+
+/* Report View Filter */
+.filterWrapper select {
+    max-width: 189px;
+}
+
+/* order id search input */
+.order-id-search-input-wrapper.loading::after {
+    content: '';
+    background: rgba(255,255,255,.8);
+    left: auto;
+    right: 0.8em;
+    top: 0.1em;
+}
+
+.order-id-search-input-wrapper .dropdown-menu:focus,
+.order-id-search-input-wrapper .dropdown-menu a:focus {
+    outline: none;
+}
+
+.text-pre {
+    white-space: pre;
+}
+
+/* product */
+.product-img.img-thumbnail {
+    max-width: 100px;
+}
+a > .product-img.img-thumbnail {
+    transition: border-color .15s ease-in-out;
+}
+a > .product-img.img-thumbnail:hover {
+    border-color: #0d6efd;
+}
+
+/* animations */
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,172 @@
+<script src="/reportViewFilter.js"></script>
+<form method="get" id="searchForm" class="filterWrapper">
+    <table class="table">
+        <tr>
+            <th><label for="model_no">Model No.</label></th>
+            <td>
+                <textarea class="form-control-sm" id="model_no" name="model_no" data-bs-toggle="tooltip"
+                    data-bs-placement="top" title="All separated by , ; ⌴ or ↵">{{initFilter.value.model_no}}</textarea>
+            </td>
+            <th><label for="createDateFrom"></label>Create Date</th>
+            <td colspan="3">
+                <input type="text" class="datetimepicker" id="createDateFrom" name="createDateFrom" autocomplete="off"
+                    data-enddateinput="createDateTo" data-datestring="{{initFilter.value.createDateFrom}}" />
+                <input type="text" id="createDateTo" name="createDateTo" autocomplete="off"
+                    data-datestring="{{initFilter.value.createDateTo}}" />
+            </td>
+            <th><label for="sortBy">Sort By</label></th>
+            <td>
+                <select name="sortBy" id="sortBy">
+                    <option value="">---</option>
+                    {{#each initFilter.sortBy}}
+                    <option value="{{@key}}" {{#if (eq @key ../initFilter.value.sortBy) }}selected{{/if}}>{{this}}
+                    </option>
+                    {{/each}}
+                </select>
+            </td>
+
+        </tr>
+        <tr>
+            <th><label for="id">Product ID</label></th>
+            <td>
+                <textarea class="form-control-sm" id="id" name="id" data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="All separated by , ; ⌴ or ↵">{{initFilter.value.id}}</textarea>
+            </td>
+            <th><label for="brand">Brand</label></th>
+            <td>
+                <select name="brand" id="brand">
+                    <option value="">---</option>
+                    {{#each initFilter.brand}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.brand )}}selected{{/if}}>
+                        {{this.name}}</option>
+                    {{/each}}
+                </select>
+            </td>
+            <th><label for="gender">Gender</label></th>
+            <td>
+                <select name="gender" id="gender">
+                    <option value="">---</option>
+                    {{#each initFilter.gender}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.gender )}}selected{{/if}}>
+                        {{this.name}}</option>
+                    {{/each}}
+                </select>
+            </td>
+            <th></th>
+            <td></td>
+        </tr>
+        <tr>
+            <th><label for="name">Name</label></th>
+            <td><input type="text" name="name" id="name" value="{{initFilter.value.name}}" /></td>
+            <th><label for="series">Series</label></th>
+            <td><input type="text" name="series" id="series" value="{{initFilter.value.series}}" /></td>
+            <th><label for="category">Category</label></th>
+            <td>
+                <select name="category" id="category">
+                    <option value="">---</option>
+                    <option value="noType" style="color: red;" {{#if (eq "noType"
+                        initFilter.value.category)}}selected{{/if}}>--- No Type ---</option>
+                    {{#each initFilter.type}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.category )}}selected{{/if}}>Type
+                        ->
+                        {{this.name}}</option>
+                    {{/each}}
+                    <option value="noAttribute" style="color: red;" {{#if (eq "noAttribue"
+                        initFilter.value.category)}}selected{{/if}}>--- No Attribute ---</option>
+                    {{#each initFilter.attribute}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.category )}}selected{{/if}}>
+                        Attribute
+                        -> {{this.name}}</option>
+                    {{/each}}
+                    <option value="noShop" style="color: red;" {{#if (eq "noShop"
+                        initFilter.value.category)}}selected{{/if}}>--- No Shop ---</option>
+                    {{#each initFilter.shop}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.category )}}selected{{/if}}>Shop
+                        ->
+                        {{this.name}}</option>
+                    {{/each}}
+                </select>
+            </td>
+            <th><label for="export">Export</label></th>
+            <td>
+            <div class="dropdown">
+              <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="exportExcelButton"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Export to Excel
+              </button>
+              <div class="dropdown-menu" aria-labelledby="exportExcelButton">
+                {{#each productFilterData.exportExcel}}
+                <a class="dropdown-item" role="button" onclick="downloadCSV('{{value}}')">{{displayText}}</a>
+                {{/each}}
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" type="button" id="exportExcelButton" onclick="downloadShopify()">
+                Shopify without Images
+            </button>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="sx_name">StockX Name</label></th>
+            <td><input type="text" name="sx_name" id="sx_name" value="{{initFilter.value.sx_name}}" /></td>
+            <th><label for="barcode">Barcode No.</label></th>
+            <td><input type="text" name="barcode" id="barcode" value="{{initFilter.value.barcode}}" /></td>
+            <th><label for="location">Location</label></th>
+            <td>
+                <select name="location" id="location" style="width:189px">
+                    <option value="">---</option>
+                    <option value="noLocation" style="color: red;" {{#if (eq "noLocation"
+                        initFilter.value.location)}}selected{{/if}}>--- No Location ---</option>
+                    {{#each initFilter.location}}
+                    <option value="{{this.id}}" {{#if (eq this.id ../initFilter.value.location )}}selected{{/if}}>
+                        {{this.name}}</option>
+                    {{/each}}
+                </select>
+            </td>
+            <th></th>
+            <td>
+                <input type="checkbox" name="withoutSize" id="withoutSize" {{#if
+                    initFilter.value.withoutSize}}checked{{/if}}>Without Size
+            </td>
+        </tr>
+        <tr>
+            <th><label for="qty">QTY(sku)</label></th>
+            <td>
+                <select name="warehouse" id="warehouse">
+                    <option value="">---</option>
+                    <option value="any" {{#if (eq "any" initFilter.value.warehouse)}}selected{{/if}}>Any Warehouse
+                    </option>
+                    {{#each initFilter.warehouse}}
+                    <option value="{{this.KC_warehouse}}" {{#if (eq this.KC_warehouse
+                        ../initFilter.value.warehouse)}}selected{{/if}}>{{this.code}}</option>
+                    {{/each}}
+                </select>
+                <select name="qtyOperator" id="qtyOperator">
+                    <option value="">---</option>
+                    {{#each initFilter.qtyOperator}}
+                    <option value="{{@key}}" {{#if (eq @key ../initFilter.value.qtyOperator)}}selected{{/if}}>{{this}}
+                    </option>
+                    {{/each}}
+                </select>
+                <input type="number" name="qty" id="qty" value="{{initFilter.value.qty}}" />
+            </td>
+            <th><label for="size">Size EUR</label></th>
+            <td><input type="text" name="size" id="size" value="{{initFilter.value.size}}" /></td>
+            <th><label for="qtyVsStock">Qty Vs Stock</label></th>
+            <td>
+                <select name="qtyVsStock" id="qtyVsStock">
+                    <option value="">---</option>
+                    {{#each initFilter.qtyVsStock}}
+                    <option value="{{@key}}" {{#if (eq @key ../initFilter.value.qtyVsStock)}}selected{{/if}}>{{this}}
+                    </option>
+                    {{/each}}
+                </select>
+            </td>
+            <th></th>
+            <td>
+                <input type="submit" class="btn btn-secondary" value="Search" />
+                <input type="button" onclick="clearForm(this.form)" class="btn btn-secondary" value="Clear" />
+            </td>
+        </tr>
+    </table>
+</form>

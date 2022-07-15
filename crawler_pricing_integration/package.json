@@ -1,0 +1,19 @@
+{
+  "name": "crawler_pricing_integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gcloud functions deploy du-crawler --project kickscrew-admin-portal-staging --entry-point duCrawler --runtime nodejs16 --trigger-http",
+    "deploy-prod": "gcloud functions deploy du-crawler --project kscw-admin-portal-3con-prd --region asia-east1 --entry-point duCrawler --runtime nodejs16 --trigger-http",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "NONE",
+  "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
+    "@google-cloud/pubsub": "^2.18.5",
+    "dotenv": "^16.0.0",
+    "mysql": "^2.18.1"
+  }
+}

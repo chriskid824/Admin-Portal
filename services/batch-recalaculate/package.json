@@ -1,0 +1,21 @@
+{
+  "name": "batch-recalculate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gcloud functions deploy batch-recalculate --project kickscrew-admin-portal-staging --entry-point recalculate --runtime nodejs16 --trigger-http --region asia-east1",
+    "deploy-prod": "gcloud functions deploy batch-recalculate --project kscw-admin-portal-3con-prd --entry-point recalculate --runtime nodejs16 --trigger-http --region asia-east1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "NONE",
+  "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
+    "@shopify/shopify-api": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "gql-query-builder": "^3.5.7",
+    "google-auth-library": "^7.14.1",
+    "mysql2": "^2.3.3"
+  }
+}

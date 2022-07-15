@@ -1,0 +1,33 @@
+{{#each orders }}
+<span class="style1">
+  <div class="style1" style="position:relative; margin-top: 12px;">
+    <div class="LKTransitionID">{{ this.data.transition_id }}</div>
+    <div class="LKOrderDate">
+      {{ this.data.labelOrderDate }}
+    </div>
+    <div class="LKContactPerson">{{ this.data.contactperson }}</div>
+    <div class="LKBarcodeContainer">
+      <img id="barcode" width="150" height="20" align="bottom"></img>
+      <script type="text/javascript">
+        var barcode = "{{ this.data.order_id }}";
+        JsBarcode("#barcode", barcode, {
+          format: "CODE128",
+          width: 2,
+          height: 30,
+          margin: 0,
+          displayValue: false
+        });
+      </script>
+    </div>
+    <div class="LKFooterContainer">
+      {{#if (lt this.data.totalqty 4)}}
+      {{{ this.data.skuName }}}
+      {{/if}}
+    </div>
+    <div class="LKRefNum">
+      {{ this.data.ref_number}}
+    </div>
+  </div>
+</span>
+<p style="page-break-before:always">&emsp;</P>
+{{/each}}

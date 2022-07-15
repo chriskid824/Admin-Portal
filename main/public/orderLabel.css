@@ -1,0 +1,112 @@
+.style1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    position: relative;
+}
+
+body {
+    margin: 0px auto;
+    font-size: 12px;
+    font-family: Helvetica;
+    color: #333;
+    line-height: 18px;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.GoatOrderID {
+    position: absolute;
+    top: -2px;
+    left: 5px;
+}
+
+.GoatOrderDate {
+    position: absolute;
+    top: -2px;
+    left: 120px;
+}
+
+.GoatTrackNum {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+}
+
+.GoatBarcodeContainer {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    width: 200px;
+}
+
+.GoatFooterContainer {
+    position: absolute;
+    top: 50px;
+    left: 5px;
+}
+
+.LKTransitionID {
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    font-size: 12px
+}
+
+.LKOrderDate {
+    position: absolute;
+    top: -5px;
+    left: 120px;
+    font-size: 12px
+}
+
+.LKContactPerson {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 12px
+}
+
+.LKBarcodeContainer {
+    position: absolute;
+    top: 26px;
+    left: 5px;
+    width: 200px;
+}
+
+.LKFooterContainer {
+    position: absolute;
+    top: 46px;
+    left: 5px;
+    font-size: 12px;
+}
+
+.LKRefNum {
+    position: absolute;
+    top: 79px;
+    left: 5px;
+    font-size: 12px;
+}
+
+.LKKCRefNum {
+    position: absolute;
+    top: -6px;
+    font-size: 8px;
+    text-align: center;
+    width: 100%
+}
+
+.LKKCBarcodeContainer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: -25px
+}
+
+@media screen {
+    .printLabels_Goat div.style1,
+    .printLabels_LK div.style1 {
+        padding-bottom: 80px;
+    }
+}
